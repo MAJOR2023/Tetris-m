@@ -10,6 +10,7 @@ export type ActivePiece = {
   type: TetrominoType;
   shape: number[][];
   position: Position;
+  rotationIndex: number;
 };
 
 export type GameStatus = 'idle' | 'playing' | 'paused' | 'gameover';
