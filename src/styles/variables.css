@@ -1,0 +1,12 @@
+:root {
+  --bg: #0f1117;
+  --surface: #1a1f2e;
+  --surface-2: #252b3d;
+  --border: #3d4663;
+  --text: #e8eaed;
+  --text-muted: #9aa0b5;
+  --accent: #7c4dff;
+  --accent-hover: #9e7dff;
+  --cell-size: 28px;
+  --radius: 10px;
+}
