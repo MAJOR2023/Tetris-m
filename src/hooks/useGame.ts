@@ -11,7 +11,7 @@ import { clearCompletedLines } from '../game/lines';
 import { lockPieceOnBoard } from '../game/merge';
 import { createActivePiece } from '../game/piece';
 import { getNextRotationIndex } from '../game/rotate';
-import { scoreForLines } from '../game/scoring';
+import { SOFT_DROP_SCORE, scoreForLines } from '../game/scoring';
 import { TETROMINO_SHAPES } from '../game/tetrominoes';
 import type { ActivePiece, GameState, Position } from '../game/types';
 
@@ -99,7 +99,7 @@ export function useGame() {
       if (prev.status !== 'playing' || !prev.active) return prev;
       const moved = withMovedPiece(prev.active, { x: 0, y: 1 });
       if (canPlacePiece(prev.board, moved)) {
-        return { ...prev, active: moved };
+        return { ...prev, active: moved, score: prev.score + SOFT_DROP_SCORE };
       }
       return settlePiece(prev);
     });
