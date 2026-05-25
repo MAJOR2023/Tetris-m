@@ -1,6 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 import { canPlacePiece, isGameOver } from '../game/collision';
-import { LINES_PER_LEVEL, createInitialGameState, drawNextPiece } from '../game/gameState';
+import {
+  LINES_PER_LEVEL,
+  createInitialGameState,
+  createPlayingState,
+  drawNextPiece,
+} from '../game/gameState';
 import { getDropIntervalMs, getLevelFromLines } from '../game/levels';
 import { clearCompletedLines } from '../game/lines';
 import { lockPieceOnBoard } from '../game/merge';
@@ -123,7 +128,7 @@ export function useGame() {
   }, []);
 
   const start = useCallback(() => {
-    setState({ ...createInitialGameState(), status: 'playing' });
+    setState(createPlayingState());
   }, []);
 
   const pause = useCallback(() => {
@@ -139,7 +144,7 @@ export function useGame() {
   }, []);
 
   const restart = useCallback(() => {
-    setState({ ...createInitialGameState(), status: 'playing' });
+    setState(createPlayingState());
   }, []);
 
   useEffect(() => {
