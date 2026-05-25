@@ -6,6 +6,10 @@ import type { GameState, TetrominoType } from './types';
 
 let bagQueue: TetrominoType[] = [];
 
+export function resetBagQueue(): void {
+  bagQueue = [];
+}
+
 function takeFromBag(): TetrominoType {
   if (bagQueue.length === 0) {
     bagQueue = createShuffledBag();
@@ -18,6 +22,21 @@ export function drawNextPiece(): TetrominoType {
 }
 
 export function createInitialGameState(): GameState {
+  resetBagQueue();
+
+  return {
+    board: createEmptyBoard(),
+    active: null,
+    next: drawNextPiece(),
+    status: 'idle',
+    score: 0,
+    level: INITIAL_LEVEL,
+    lines: 0,
+  };
+}
+
+export function createPlayingState(): GameState {
+  resetBagQueue();
   const first = drawNextPiece();
   const second = drawNextPiece();
 
@@ -25,7 +44,7 @@ export function createInitialGameState(): GameState {
     board: createEmptyBoard(),
     active: createActivePiece(first),
     next: second,
-    status: 'idle',
+    status: 'playing',
     score: 0,
     level: INITIAL_LEVEL,
     lines: 0,
