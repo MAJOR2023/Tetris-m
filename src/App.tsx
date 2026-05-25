@@ -2,6 +2,7 @@ import { Board } from './components/Board';
 import { ControlsHelp } from './components/ControlsHelp';
 import { GameControls } from './components/GameControls';
 import { GameOverOverlay } from './components/GameOverOverlay';
+import { PauseOverlay } from './components/PauseOverlay';
 import { NextPiece } from './components/NextPiece';
 import { StatsPanel } from './components/StatsPanel';
 import { useGame } from './hooks/useGame';
@@ -54,11 +55,7 @@ export default function App() {
           <div className="board-wrap">
             <Board board={state.board} active={state.active} />
             <GameOverOverlay visible={state.status === 'gameover'} />
-            {state.status === 'paused' && (
-              <div className="pause-overlay">
-                <span>Paused</span>
-              </div>
-            )}
+            <PauseOverlay visible={state.status === 'paused'} />
           </div>
         </section>
       </div>
