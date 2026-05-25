@@ -1,4 +1,4 @@
-import { BOARD_HEIGHT, BOARD_WIDTH } from '../game/constants';
+import { BOARD_WIDTH } from '../game/constants';
 import { getDisplayBoard } from '../game/display';
 import type { ActivePiece, Board as BoardType } from '../game/types';
 import { Cell } from './Cell';
