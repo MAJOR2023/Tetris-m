@@ -1,0 +1,52 @@
+.board-wrap {
+  position: relative;
+  padding: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+.board {
+  display: grid;
+  gap: 2px;
+  background: var(--surface-2);
+  padding: 4px;
+  border-radius: 6px;
+}
+
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.cell--filled {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.game-over,
+.pause-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 17, 23, 0.82);
+  border-radius: var(--radius);
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text);
+  pointer-events: none;
+}
+
+.game-over span,
+.pause-overlay span {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
