@@ -2,6 +2,7 @@ import { Board } from './components/Board';
 import { ControlsHelp } from './components/ControlsHelp';
 import { GameControls } from './components/GameControls';
 import { GameOverOverlay } from './components/GameOverOverlay';
+import { IdleOverlay } from './components/IdleOverlay';
 import { PauseOverlay } from './components/PauseOverlay';
 import { NextPiece } from './components/NextPiece';
 import { StatsPanel } from './components/StatsPanel';
@@ -54,6 +55,7 @@ export default function App() {
         <section className="app__stage">
           <div className="board-wrap">
             <Board board={state.board} active={state.active} />
+            <IdleOverlay visible={state.status === 'idle'} />
             <GameOverOverlay visible={state.status === 'gameover'} />
             <PauseOverlay visible={state.status === 'paused'} />
           </div>

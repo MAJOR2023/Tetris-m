@@ -28,7 +28,8 @@
 }
 
 .game-over,
-.pause-overlay {
+.pause-overlay,
+.idle-overlay {
   position: absolute;
   inset: 0;
   display: flex;
@@ -44,7 +45,8 @@
 }
 
 .game-over span,
-.pause-overlay span {
+.pause-overlay span,
+.idle-overlay span {
   padding: 0.5rem 1rem;
   border: 1px solid var(--border);
   border-radius: 8px;
