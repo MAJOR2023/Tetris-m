@@ -6,6 +6,7 @@ import { IdleOverlay } from './components/IdleOverlay';
 import { PauseOverlay } from './components/PauseOverlay';
 import { NextPiece } from './components/NextPiece';
 import { StatsPanel } from './components/StatsPanel';
+import { useBestScore } from './hooks/useBestScore';
 import { useGame } from './hooks/useGame';
 import { useKeyboard } from './hooks/useKeyboard';
 import './App.css';
@@ -13,6 +14,7 @@ import './App.css';
 export default function App() {
   const game = useGame();
   const { state } = game;
+  const bestScore = useBestScore(state.score);
   const keyboardEnabled = state.status === 'playing' || state.status === 'paused';
 
   useKeyboard(
@@ -40,7 +42,12 @@ export default function App() {
 
       <div className="app__layout">
         <aside className="app__sidebar">
-          <StatsPanel score={state.score} level={state.level} lines={state.lines} />
+          <StatsPanel
+            score={state.score}
+            best={bestScore}
+            level={state.level}
+            lines={state.lines}
+          />
           <NextPiece type={state.next} />
           <GameControls
             status={state.status}
